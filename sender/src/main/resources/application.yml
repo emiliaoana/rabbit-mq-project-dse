@@ -8,3 +8,4 @@ queue:
   name: my-queue
 server:
   port: 8081
+
