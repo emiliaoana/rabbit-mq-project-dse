@@ -1,9 +1,9 @@
 spring:
   rabbitmq:
-    host: ${SPRING_RABBITMQ_HOST:localhost}
-    port: ${SPRING_RABBITMQ_PORT:5672}
-    username: ${SPRING_RABBITMQ_USERNAME:admin}
-    password: ${SPRING_RABBITMQ_PASSWORD:admin}
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin
 queue:
   name: my-queue
   logs: error-logs-queue

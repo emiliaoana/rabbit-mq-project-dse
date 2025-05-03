@@ -1,14 +1,14 @@
 spring:
   rabbitmq:
-    host: ${SPRING_RABBITMQ_HOST:localhost}
-    port: ${SPRING_RABBITMQ_PORT:5672}
-    username: ${SPRING_RABBITMQ_USERNAME:admin}
-    password: ${SPRING_RABBITMQ_PASSWORD:admin}
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin
   mail:
-    host: ${SPRING_MAIL_HOST:smtp.gmail.com}
-    port: ${SPRING_MAIL_PORT:587}
-    username: ${GMAIL_USERNAME:misemilia01@gmail.com}
-    password: ${GMAIL_APP_PASSWORD:hqsyuzrtvbudjids}
+    host: smtp.gmail.com
+    port: 587
+    username: misemilia01@gmail.com
+    password: hqsyuzrtvbudjids
     properties:
       mail:
         smtp:
