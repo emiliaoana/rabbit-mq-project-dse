@@ -4,7 +4,7 @@ services:
     hostname: rmq1
     container_name: rmq1
     networks:
-      - rabbitmq_cluster
+      - rabbit_cluster
     ports:
       - "5672:5672"
       - "15672:15672"
@@ -18,7 +18,7 @@ services:
     hostname: rmq2
     container_name: rmq2
     networks:
-      - rabbitmq_cluster
+      - rabbit_cluster
     ports:
       - "5673:5672"
       - "15673:15672"
@@ -31,5 +31,5 @@ services:
     command: /bin/bash -c "sleep 10; rabbitmq-server & sleep 20; rabbitmqctl stop_app; rabbitmqctl join_cluster rabbit@rmq1; rabbitmqctl start_app; tail -f /dev/null"
 
 networks:
-    rabbitmq_cluster:
+    rabbit_cluster:
         driver: bridge

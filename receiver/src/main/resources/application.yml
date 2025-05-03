@@ -4,6 +4,18 @@ spring:
     port: ${SPRING_RABBITMQ_PORT:5672}
     username: ${SPRING_RABBITMQ_USERNAME:admin}
     password: ${SPRING_RABBITMQ_PASSWORD:admin}
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: misemilia01@gmail.com
+    password: lbxczfaqltqvwjik
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 queue:
   name: my-queue
+  logs: error-logs-queue
 
