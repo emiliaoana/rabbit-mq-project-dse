@@ -26,7 +26,7 @@ public class LogProducer {
 
     private final Random random = new Random();
 
-    @Scheduled(fixedRate = 1000000000)
+    @Scheduled(fixedRate = 1000)
     public void sendLogMessage() {
         LogMessage log = new LogMessage();
         log.setService(getRandomService());

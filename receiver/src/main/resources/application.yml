@@ -5,10 +5,10 @@ spring:
     username: ${SPRING_RABBITMQ_USERNAME:admin}
     password: ${SPRING_RABBITMQ_PASSWORD:admin}
   mail:
-    host: smtp.gmail.com
-    port: 587
-    username: misemilia01@gmail.com
-    password: lbxczfaqltqvwjik
+    host: ${SPRING_MAIL_HOST:smtp.gmail.com}
+    port: ${SPRING_MAIL_PORT:587}
+    username: ${GMAIL_USERNAME:misemilia01@gmail.com}
+    password: ${GMAIL_APP_PASSWORD:hqsyuzrtvbudjids}
     properties:
       mail:
         smtp:

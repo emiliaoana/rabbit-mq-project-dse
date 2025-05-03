@@ -9,7 +9,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 @Service
 public class EmailService {
 
-    @Value("${spring.mail.username}")
+    @Value("misemilia01@gmail.com")
     private String fromEmail;
 
     private final JavaMailSender emailSender;
