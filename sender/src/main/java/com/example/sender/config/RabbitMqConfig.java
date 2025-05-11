@@ -19,12 +19,18 @@ public class RabbitMqConfig {
 
     @Bean
     public Queue myQueue() {
-        return new Queue(queueName, false);
+        return QueueBuilder
+                .durable(queueName)
+                .withArgument("x-queue-type", "quorum")
+                .build();
     }
 
     @Bean
     public Queue logsQueue() {
-        return new Queue(logsQueueName, false);
+        return QueueBuilder
+                .durable(logsQueueName)
+                .withArgument("x-queue-type", "quorum")
+                .build();
     }
 
 //    @Bean
