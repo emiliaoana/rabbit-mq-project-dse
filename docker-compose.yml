@@ -8,6 +8,8 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
+    volumes:
+      - rabbitmq_data_rmq1:/var/lib/rabbitmq
     environment:
       - RABBITMQ_ERLANG_COOKIE=cookie
       - RABBITMQ_DEFAULT_USER=admin
@@ -23,6 +25,8 @@ services:
     container_name: rmq2
     networks:
       - rabbit_cluster
+    volumes:
+      - rabbitmq_data_rmq2:/var/lib/rabbitmq
     ports:
       - "5673:5672"
       - "15673:15672"
@@ -83,3 +87,5 @@ networks:
 volumes:
   prometheus_data:
   grafana_data:
+  rabbitmq_data_rmq1:
+  rabbitmq_data_rmq2:

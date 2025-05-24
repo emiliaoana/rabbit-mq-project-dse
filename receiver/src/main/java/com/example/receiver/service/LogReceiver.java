@@ -47,11 +47,9 @@ public class LogReceiver {
                 logger.info("Message received: " + logMessage.getMessage());
             }
 
-            // Record message processing time
             Duration processingDuration = Duration.between(start, Instant.now());
             processingTimer.record(processingDuration);
 
-            // Record message latency if timestamp is available
             if (logMessage.getTimestamp() != null) {
                 try {
                     Instant messageTime = Instant.parse(logMessage.getTimestamp());
