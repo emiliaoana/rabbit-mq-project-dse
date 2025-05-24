@@ -30,6 +30,5 @@ management:
       rabbitmq: true
 
 queue:
-  name: my-queue
   logs: error-logs-queue
 

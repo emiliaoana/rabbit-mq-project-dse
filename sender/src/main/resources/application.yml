@@ -4,7 +4,6 @@ spring:
     username: admin
     password: admin
 queue:
-  name: my-queue
   logs: error-logs-queue
 server:
   port: 8081

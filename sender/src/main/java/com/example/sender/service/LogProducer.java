@@ -26,7 +26,7 @@ public class LogProducer {
 
     private final Random random = new Random();
 
-    @Scheduled(cron = "0 * * * * ?")
+    @Scheduled(cron = "0/10 * * * * ?")
     public void sendLogMessage() {
         LogMessage log = new LogMessage();
         log.setService(getRandomService());

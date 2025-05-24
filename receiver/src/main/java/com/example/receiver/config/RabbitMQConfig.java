@@ -11,20 +11,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
 
-    @Value("${queue.name}")
-    private String queueName;
-
     @Value("${queue.logs}")
     private String logsQueueName;
 
     @Bean
-    public Queue myQueue() {
-        return new Queue(queueName, false);
-    }
-
-    @Bean
     public Queue logsQueue() {
-        return new Queue(logsQueueName, false);
+        return new Queue(logsQueueName, true);
     }
 
     @Bean
