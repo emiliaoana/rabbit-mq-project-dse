@@ -1,7 +1,5 @@
 package com.example.receiver.config;
 import org.springframework.amqp.core.*;
-import org.springframework.amqp.rabbit.connection.ConnectionFactory;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,20 +14,10 @@ public class RabbitMQConfig {
 
     @Bean
     public Queue logsQueue() {
-        return new Queue(logsQueueName, true);
-    }
-
-    @Bean
-    public TopicExchange logsExchange() {
-        return new TopicExchange("logs.exchange");
-    }
-
-    @Bean
-    public Binding logsBinding(Queue logsQueue, TopicExchange exchange) {
-        return BindingBuilder
-                .bind(logsQueue)
-                .to(exchange)
-                .with("logs.#");
+        return QueueBuilder
+                .durable(logsQueueName)
+                .quorum()
+                .build();
     }
     @Bean
     public MessageConverter jsonMessageConverter() {

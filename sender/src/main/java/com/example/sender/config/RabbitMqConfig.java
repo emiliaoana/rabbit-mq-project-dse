@@ -20,18 +20,6 @@ public class RabbitMqConfig {
                 .build();
     }
 
-//    @Bean
-//    public TopicExchange logsExchange() {
-//        return new TopicExchange("logs.exchange");
-//    }
-
-//    @Bean
-//    public Binding logsBinding(Queue logsQueue, TopicExchange exchange) {
-//        return BindingBuilder
-//                .bind(logsQueue)
-//                .to(exchange)
-//                .with("logs.#");
-//    }
     @Bean
     public MessageConverter jsonMessageConverter() {
         return new Jackson2JsonMessageConverter();
