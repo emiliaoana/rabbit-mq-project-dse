@@ -1,6 +1,6 @@
 spring:
   rabbitmq:
-    addresses: localhost:5672,localhost:5673
+    addresses: localhost:5672,localhost:5673,localhost:5674
     username: admin
     password: admin
   mail:

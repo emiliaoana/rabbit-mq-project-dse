@@ -35,14 +35,13 @@ public class LogReceiver {
     public void receiveLog(LogMessage logMessage) {
         Instant start = Instant.now();
         messageCounter.incrementAndGet();
-
         try {
             if(logMessage.getLevel().equals("ERROR")) {
                 errorCounter.incrementAndGet();
-                logger.severe("Error message received: " + logMessage.getMessage() + " sending email");
-                Email email = new Email("emiliaoana01@gmail.com", "Error message", logMessage.getMessage());
-                emailService.sendMail(email);
-                logger.info("Email sent to: " + email.getTo() + " with subject: " + email.getSubject());
+//                logger.severe("Error message received: " + logMessage.getMessage() + " sending email");
+//                Email email = new Email("emiliaoana01@gmail.com", "Error message", logMessage.getMessage());
+//                emailService.sendMail(email);
+//                logger.info("Email sent to: " + email.getTo() + " with subject: " + email.getSubject());
             } else {
                 logger.info("Message received: " + logMessage.getMessage());
             }

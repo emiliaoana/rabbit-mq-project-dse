@@ -43,6 +43,32 @@ services:
         rabbitmqctl start_app;
         tail -f /dev/null"
 
+  rmq3:
+    image: rabbitmq:3.12-management
+    hostname: rmq3
+    container_name: rmq3
+    networks:
+      - rabbit_cluster
+    ports:
+      - "5674:5672"
+      - "15674:15672"
+    depends_on:
+      - rmq1
+    environment:
+      - RABBITMQ_ERLANG_COOKIE=cookie
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+    command: >
+      bash -c "
+        rabbitmq-plugins enable rabbitmq_prometheus &&
+        sleep 10;
+        rabbitmq-server &
+        sleep 20;
+        rabbitmqctl stop_app;
+        rabbitmqctl join_cluster rabbit@rmq1;
+        rabbitmqctl start_app;
+        tail -f /dev/null"
+
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus

@@ -1,10 +1,24 @@
 spring:
   rabbitmq:
-    addresses: localhost:5672,localhost:5673
+    addresses: localhost:5672,localhost:5673,localhost:5674
     username: admin
     password: admin
 queue:
   logs: error-logs-queue
 server:
   port: 8081
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,prometheus
+  metrics:
+    tags:
+      application: ${spring.application.name}
+    enable:
+      jvm: true
+      process: true
+      system: true
+      rabbitmq: true
+
 
